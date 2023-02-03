@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { View, Text } from 'react-native';
-import { Center } from 'native-base';
+import { VStack } from 'native-base';
 import Form from '../forms/Form';
 
 const SearchesContainer = ({ navigation }) => {
@@ -29,11 +29,9 @@ const SearchesContainer = ({ navigation }) => {
   console.log('Search Query:', searchQuery, searchFilter);
 
   return (
-    <Center>
-      <Center>
-        <Form onSubmit={handleSubmittedQuery} />
-      </Center>
-    </Center>
+    <VStack>
+      <Form onSubmit={handleSubmittedQuery} />
+    </VStack>
   );
 };
 

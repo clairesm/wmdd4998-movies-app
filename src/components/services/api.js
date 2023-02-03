@@ -135,7 +135,6 @@ export const getTv = async (tvFilter) => {
   const tvResults = await fetch(getTvFilter)
     .then((res) => {
       console.log('api, tv res >>', res.data);
-
       return res.json();
     })
     .then((data) => {

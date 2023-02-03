@@ -26,7 +26,7 @@ const TvShowsContainer = ({ navigation }) => {
   console.log('TV Filter:', tvFilter);
 
   return (
-    <VStack width='100%' mb={10} pb={10}>
+    <VStack>
       <TvDropDown onValueChange={handleValueChange} />
       {isLoading ? (
         <Loading />

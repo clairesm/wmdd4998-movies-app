@@ -1,5 +1,5 @@
-import React from 'react';
 import {
+  Box,
   Button,
   Center,
   Heading,
@@ -8,6 +8,7 @@ import {
   Text,
   HStack,
 } from 'native-base';
+import ShowContainer from '../containers/ShowContainer';
 
 const AllResultsCard = (props) => {
   const {
@@ -18,38 +19,34 @@ const AllResultsCard = (props) => {
     releaseDate,
     navigation,
     name,
-    label,
-    uri,
+    overview,
   } = props;
 
   console.log('MovieCard, id >>', id);
 
   return (
-    // <></>
-
-    <HStack space={3} justifyContent='center' m={1.5}>
-      <Center>
+    <Box>
+      <HStack pl={3} my={2} pr={6} alignItems='center'>
         <Image
           alt='{title} {name}'
           source={{ uri: image }}
           size={'xl'}
         />
-      </Center>
-      <Center>
-        <Heading size='xs'>
-          {title} {name}
-        </Heading>
-        <Text>Popularity: {popularity}</Text>
-        <Text>Date: {releaseDate}</Text>
-        <Button
-          onPress={() => {
-            navigation.navigate('Show', { resultid: 'id' });
-          }}
-        >
-          More Details
-        </Button>
-      </Center>
-    </HStack>
+
+        <VStack width='100%' px={2} flex={1}>
+          <Heading size='xs'>{title || name}</Heading>
+          <Text>Popularity: {popularity}</Text>
+          <Text>Date: {releaseDate}</Text>
+          <Button
+            onPress={() => {
+              navigation.navigate('Show', { id: 'id' });
+            }}
+          >
+            More Details
+          </Button>
+        </VStack>
+      </HStack>
+    </Box>
   );
 };
 
