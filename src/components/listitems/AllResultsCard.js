@@ -9,7 +9,6 @@ import {
   Text,
   HStack,
 } from 'native-base';
-import DetailsContainer from '../containers/DetailsContainer';
 
 const AllResultsCard = (props) => {
   const {
@@ -45,7 +44,7 @@ const AllResultsCard = (props) => {
         <Text>Date: {releaseDate}</Text>
         <Button
           onPress={() => {
-            navigation.navigate('Show', { id: 'id' });
+            navigation.navigate('Show', { resultid: 'id' });
           }}
         >
           More Details

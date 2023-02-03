@@ -1,4 +1,4 @@
-import DetailsContainer from '../containers/DetailsContainer';
+import DetailsContainer from '../containers/ShowContainer';
 
 const ShowScreen = ({ navigation, route }) => {
   <DetailsContainer
