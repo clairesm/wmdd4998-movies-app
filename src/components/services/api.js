@@ -59,6 +59,36 @@ export const getMovies = async (movieFilter) => {
   return result;
 };
 
+// ============ get movie details
+export const getMovieDetails = async (id) => {
+  const getDetails =
+    BASE_URL + 'movie/' + id + '?' + APP_KEY;
+  console.log('Movie API call:', getDetails);
+
+  try {
+    const response = await fetch(getDetails);
+    const data = await response.json();
+    const {
+      name,
+      title,
+      overview,
+      popularity,
+      release_date,
+      poster_path,
+    } = data;
+    return {
+      name,
+      title,
+      overview,
+      popularity,
+      release_date,
+      poster_path,
+    };
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 // ============ get search result
 export const getSearchResult = async (
   searchQuery,
@@ -146,4 +176,33 @@ export const getTv = async (tvFilter) => {
     });
 
   return tvResults;
+};
+
+// ============ get TV details
+export const getTvDetails = async (id) => {
+  const getDetails = BASE_URL + 'tv/' + id + '?' + APP_KEY;
+  console.log('TV API call:', getDetails);
+
+  try {
+    const response = await fetch(getDetails);
+    const data = await response.json();
+    const {
+      name,
+      title,
+      overview,
+      popularity,
+      release_date,
+      poster_path,
+    } = data;
+    return {
+      name,
+      title,
+      overview,
+      popularity,
+      release_date,
+      poster_path,
+    };
+  } catch (error) {
+    console.error(error);
+  }
 };

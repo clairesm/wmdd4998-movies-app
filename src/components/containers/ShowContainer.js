@@ -1,48 +1,53 @@
-import React from 'react';
-import {
-  Box,
-  Button,
-  Center,
-  Heading,
-  VStack,
-  Image,
-  Text,
-  HStack,
-} from 'native-base';
+import { Center, Image, Text } from 'native-base';
 import { useState, useEffect } from 'react';
+import {
+  getMovieDetails,
+  getTvDetails,
+} from '../services/api';
 
-const ShowContainer = (props) => {
-  const {
-    id,
-    image,
-    title,
-    popularity,
-    releaseDate,
-    navigation,
-    name,
-    overview,
-  } = props;
+const ShowContainer = ({ navigation, route, props }) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [details, setDetails] = useState({});
+  const { id, type } = route.params;
 
-  console.log(id);
-  return (
-    <Center>
-      <VStack width='100%' p='10'>
-        <Heading size='xs' mb={5} textAlign='center'>
-          {title || name}
-        </Heading>
-        <Image
-          alt='{title} {name}'
-          source={{ uri: image }}
-          size={'xl'}
-        />
-        <Text my={5}>{overview}</Text>
-        <Text fontSize='xs'>
-          Popularity: {popularity} | Release Date:{' '}
-          {releaseDate}
-        </Text>
-      </VStack>
-    </Center>
-  );
+  useEffect(() => {
+    console.log('Running effect');
+    const fetchData = async () => {
+      setIsLoading(true);
+
+      let response;
+      if (type === 'movie') {
+        response = await getMovieDetails(id);
+      } else if (type === 'tv') {
+        response = await getTvDetails(id);
+      }
+
+      console.log('Got response>>>', response);
+
+      setDetails(response);
+
+      setIsLoading(false);
+    };
+    fetchData();
+  }, []);
+
+  return <Text>Hello</Text>;
+  //     <Center>
+  // {details.poster_path ? (
+  // <Image
+  // source={{
+  // uri: https://image.tmdb.org/t/p/w500/${details.poster_path},
+  // }},
+  // alt='Alternate text'
+  // size='2xl'
+  // margin='auto'
+  // />
+  // ) : null}>
+  // <Text>{details.title || details.name || "Title not found"}</Text>
+  // <Text>{details.overview || "Overview not found"}</Text>
+  // <Text>Popularity: {details.popularity || "Popularity not found"}</Text>
+  // <Text>Release Date: {details.release_date || "Release date not found"}</Text>
+  // </Center>
 };
 
 export default ShowContainer;

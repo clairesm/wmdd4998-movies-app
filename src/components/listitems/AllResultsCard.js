@@ -39,7 +39,7 @@ const AllResultsCard = (props) => {
           <Text>Date: {releaseDate}</Text>
           <Button
             onPress={() => {
-              navigation.navigate('Show', { id: 'id' });
+              navigation.navigate('Show', { id: id });
             }}
           >
             More Details
