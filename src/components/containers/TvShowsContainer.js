@@ -2,7 +2,7 @@ import React from 'react';
 import TvDropDown from '../forms/TvDropDown';
 import { useState } from 'react';
 import { getTv } from '../services/api';
-import { Center, Container } from 'native-base';
+import { VStack } from 'native-base';
 import AllResultsList from '../list/AllResultsList';
 import Loading from '../layout/Loading';
 
@@ -26,19 +26,17 @@ const TvShowsContainer = ({ navigation }) => {
   console.log('TV Filter:', tvFilter);
 
   return (
-    <Container>
-      <Center>
-        <TvDropDown onValueChange={handleValueChange} />
-        {isLoading ? (
-          <Loading />
-        ) : (
-          <AllResultsList
-            results={results}
-            navigation={navigation}
-          />
-        )}
-      </Center>
-    </Container>
+    <VStack width='100%' mb={10} pb={10}>
+      <TvDropDown onValueChange={handleValueChange} />
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <AllResultsList
+          results={results}
+          navigation={navigation}
+        />
+      )}
+    </VStack>
   );
 };
 

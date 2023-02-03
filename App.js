@@ -1,10 +1,6 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import {
-  NativeBaseProvider,
-  Container,
-  Text,
-} from 'native-base';
+import { NativeBaseProvider } from 'native-base';
 import MoviesContainer from './src/components/containers/MoviesContainer';
 import SearchesContainer from './src/components/containers/SearchesContainer';
 import TvShowsContainer from './src/components/containers/TvShowsContainer';
