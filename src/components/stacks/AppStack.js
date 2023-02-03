@@ -1,5 +1,6 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import ShowContainer from '../containers/ShowContainer';
 import IndexScreen from '../screens/IndexScreen';
 import ShowScreen from '../screens/ShowScreen';
 
@@ -25,7 +26,7 @@ const AppStack = () => {
         name='Show'
         component={ShowScreen}
         options={({ route }) => ({
-          title: route.params.label,
+          title: route.params.resultid,
         })}
       ></Stack.Screen>
     </Stack.Navigator>

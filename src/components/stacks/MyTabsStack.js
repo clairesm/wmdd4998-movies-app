@@ -7,7 +7,7 @@ import SearchesContainer from '../containers/SearchesContainer';
 import TvShowsContainer from '../containers/TvShowsContainer';
 
 import { Stack } from 'native-base';
-import DetailsContainer from '../containers/DetailsContainer';
+import DetailsContainer from '../containers/ShowContainer';
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -38,7 +38,7 @@ const MyTabsStack = () => {
           </Stack.Navigator> */}
         {/* </Tab.Screen> */}
         <Tab.Screen
-          name='TV'
+          name='TV Shows'
           component={TvShowsContainer}
         />
         {/* <Stack.Navigator>

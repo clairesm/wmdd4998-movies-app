@@ -2,15 +2,14 @@
 import React from 'react';
 import { Box, Center, Text } from 'native-base';
 
-const DetailsContainer = ({ navigation, route }) => {
-  const { id } = route.params;
+const ShowContainer = ({ navigation, route }) => {
   return (
     <Box width='100%'>
       <Center py={10}>
-        <Text>{id}</Text>
+        <Text>{resultid}</Text>
       </Center>
     </Box>
   );
 };
 
-export default DetailsContainer;
+export default ShowContainer;
